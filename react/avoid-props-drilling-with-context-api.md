@@ -19,9 +19,22 @@ Our user object will reside in `context.user`.
 
 Then we assign the context a value in the topmost component. For example in App.js
 ```javascript
-<Context.Provider value={{ user: this.state.user }}>
-  <ChildComponent/>
-</Context.Provider>
+import Context from '../Context.js';
+import React from 'react';
+
+export default class App extends React.Component {
+  constructor(props){
+    super(props);
+  }
+  
+  render(){
+    return(
+      <Context.Provider value={{ user: this.state.user }}>
+        <ChildComponent/>
+      </Context.Provider>
+    )
+  }
+
 ```
 
 Notice the object notation. Then we can access the variable as such:
